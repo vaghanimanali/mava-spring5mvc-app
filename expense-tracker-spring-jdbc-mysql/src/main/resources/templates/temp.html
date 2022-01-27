@@ -1,0 +1,24 @@
+<html lang=“en” xmlns:th=“http://www.thymeleaf.org”>
+<head>
+    <link rel=“stylesheet”
+          href=“https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css”
+          integrity=“sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO”
+          crossorigin=“anonymous”>
+</head>
+<h1>Please enter your expense.</h1>
+<body>
+<form action=“#” th:action=“@{/saveExpense}” th:object=“${expenseTracker}”
+      method=“POST”>
+    <input type=“radio” id=“income” name=“income” value=“INCOME” th:field=“*{expenseFlag}“>
+    <label for=“income”>Income</label><br>
+    <input type=“radio” id=“expense” name=“expense” value=“EXPENSE” th:field=“*{expenseFlag}“>
+    <label for=“expense”>Expense</label><br>
+    <input type=“text” th:field=“*{expenseDescription}” th:text=“${expenseTracker.expenseDescription}” placeholder=“Expense_Description" class=“form-control mb-4 col-4">
+    <input type=“text” th:field=“*{expenseAmount}”
+           th:text=“${expenseTracker.expenseAmount}”
+           placeholder=“Expense_Amount” class=“form-control mb-4 col-4”>
+    <button type=“submit” class=“btn btn-info col-2”> Save Expense</button>
+</form>
+</body>
+</html>
+
